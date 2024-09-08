@@ -63,7 +63,20 @@ def create_nft(address):
     return svg_content
 
 
+from flask import Flask, request, jsonify
 
+app = Flask(__name__)
+
+@app.route('/generate_nft', methods=['POST'])
+
+def generate_nft():
+    data = request.json
+    address = data.get('address')
+    svg_code = create_nft(address)
+    return jsonify({'svg': svg_code})
+
+if __name__ == '__main__':
+    app.run(debug=True)
 # Example usage
 #address = "0x55Aeb6053F3E94C9b9A09f33669435E7Ef1BeAed"
 #svg_xml = create_nft(address)
