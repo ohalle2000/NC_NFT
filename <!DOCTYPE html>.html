@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoughtCross NFT Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .nft-image {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>NoughtCross NFT Viewer</h2>
+    <input type="text" class="input-field" id="nftID" placeholder="Enter your wallet address">
+    <button class="btn" onclick="seeMyNFT()">See my NoughtCross NFT</button>
+    <div id="nftContainer" class="nft-image">
+        <p>Your NoughtCross NFT:</p>
+        <img id="nftImage" src="" alt="NFT Image" width="200">
+    </div>
+</div>
+
+<script>
+    function seeMyNFT() {
+        var nftID = document.getElementById("nftID").value;
+        if(nftID) {
+            // Mockup of how an image might be shown
+            var imageUrl = "https://example.com/nft/" + nftID + ".png"; // Replace with actual logic to fetch NFT image
+            document.getElementById("nftImage").src = imageUrl;
+            document.getElementById("nftContainer").style.display = "block";
+        } else {
+            alert("Please enter a valid NFT ID");
+        }
+    }
+</script>
+
+</body>
+</html>
