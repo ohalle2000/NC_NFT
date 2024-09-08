@@ -1,3 +1,10 @@
+from flask import Flask, jsonify, request, send_file
+from flask_cors import CORS  # Import CORS
+import io
+
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
+
 
 
 def address_to_binary(address):
@@ -63,9 +70,6 @@ def create_nft(address):
     return svg_content
 
 
-from flask import Flask, request, jsonify
-
-app = Flask(__name__)
 
 @app.route('/generate_nft', methods=['POST'])
 
@@ -77,7 +81,4 @@ def generate_nft():
 
 if __name__ == '__main__':
     app.run(debug=True)
-# Example usage
-#address = "0x55Aeb6053F3E94C9b9A09f33669435E7Ef1BeAed"
-#svg_xml = create_nft(address)
-#print(svg_xml)
+
